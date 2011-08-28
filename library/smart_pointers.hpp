@@ -134,9 +134,6 @@ namespace gc
 		os << p.p;
 		return os;
 	}
-
-	template<class T>
-	
 }
 
 #endif
