@@ -1,0 +1,4 @@
+*** REQUIREMENTS ***
+
+This code uses some advanced C++ feature that may not be implemented by your compiler.
+I have been using this code with gcc 4.5.1, but newer versions will be appropriate.
