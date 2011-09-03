@@ -28,7 +28,10 @@ namespace gc
 
 		template<class Y> smart_pointer(smart_pointer<Y> const & r);
 
-		~smart_pointer() THROW_CHECK() { /*todo*/ }
+		~smart_pointer() THROW_CHECK()
+		{
+			delete p; //! @todo allocator needed
+		}
 
 		smart_pointer & operator=(smart_pointer const & r);
 		template<class Y> smart_pointer& operator=(smart_pointer<Y> const & r);
