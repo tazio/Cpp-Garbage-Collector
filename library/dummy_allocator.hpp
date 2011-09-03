@@ -1,0 +1,6 @@
+#ifndef DUMMY_ALLOCATOR_HPP
+#define DUMMY_ALLOCATOR_HPP
+
+
+
+#endif // DUMMY_ALLOCATOR_HPP
