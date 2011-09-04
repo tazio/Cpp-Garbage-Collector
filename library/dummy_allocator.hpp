@@ -19,26 +19,34 @@ public:
     dummy_allocator() throw(){};
     dummy_allocator(const dummy_allocator&) throw(){};
 
-    template <class U>
-    dummy_allocator (const dummy_allocator<U>&) throw(){};
+    template <typename U>
+    dummy_allocator(const dummy_allocator<U>&) throw(){};
 
-    ~dummy_allocator() throw() {};
+    ~dummy_allocator() throw(){};
 
-    pointer address ( reference x ) const;
-    const_pointer address ( const_reference x ) const;
+    pointer address(reference x) const;
+    const_pointer address(const_reference x) const;
 
-    pointer allocate (size_type n, dummy_allocator<void>::const_pointer hint=0);
+    pointer allocate(size_type n, dummy_allocator<void>::const_pointer hint=0);
 
-    void deallocate (pointer p, size_type n);
+    void deallocate(pointer p, size_type n);
 
     size_type max_size() const throw();
 
-    void construct ( pointer p, const_reference val );
+    void construct(pointer p, const_reference val);
 
-    void destroy (pointer p);
+    void destroy(pointer p);
 };
 
 // definitions
+template <typename _Tp> dummy_allocator<_Tp>::pointer dummy_allocator<_Tp>::address(reference x) const
+{
+    return(&x);
+}
 
+template <typename _Tp> dummy_allocator<_Tp>::const_pointer dummy_allocator<_Tp>::address(const_reference x) const
+{
+    return(&x);
+}
 
 #endif // DUMMY_ALLOCATOR_HPP
