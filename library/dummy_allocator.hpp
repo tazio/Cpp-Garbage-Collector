@@ -60,8 +60,6 @@ template <typename _Tp> dummy_allocator<_Tp>::size_type dummy_allocator<_Tp>::ma
     return size_t(-1) / sizeof(_Tp);
 }
 
-
-// memory managment
 template <typename _Tp> dummy_allocator<_Tp>::pointer dummy_allocator<_Tp>::allocate(size_type n, dummy_allocator<void>::const_pointer hint)
 {
     if (n > this->max_size())
