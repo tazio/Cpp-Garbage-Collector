@@ -49,25 +49,21 @@ public:
 // definitions
 template <typename T> typename dummy_allocator<T>::pointer dummy_allocator<T>::address(reference x) const
 {
-    std::cout << "address" << std::endl;
     return(&x);
 }
 
 template <typename T> typename dummy_allocator<T>::const_pointer dummy_allocator<T>::address(const_reference x) const
 {
-    std::cout << "address" << std::endl;
     return(&x);
 }
 
 template <typename T> typename dummy_allocator<T>::size_type dummy_allocator<T>::max_size() const throw()
 {
-    std::cout << "max_size" << std::endl;
     return size_t(-1) / sizeof(T);
 }
 
 template <typename T> typename dummy_allocator<T>::pointer dummy_allocator<T>::allocate(size_type n, const void *)
 {
-    std::cout << "allocate" << std::endl;
     if (n > this->max_size())
         std::__throw_bad_alloc();
 
@@ -76,21 +72,16 @@ template <typename T> typename dummy_allocator<T>::pointer dummy_allocator<T>::a
 
 template <typename T> void dummy_allocator<T>::deallocate(pointer p, size_type n)
 {
-    std::cout << "deallocate" << std::endl;
     ::operator delete(p);
 }
 
 template <typename T> void dummy_allocator<T>::construct(pointer p, const_reference val)
 {
-    std::cout << "construct" << std::endl;
-
     ::new(static_cast<void *>(p)) T(val);
 }
 
 template <typename T> void dummy_allocator<T>::destroy(pointer p)
 {
-    std::cout << "destroy" << std::endl;
-
     p->~T();
 }
 
