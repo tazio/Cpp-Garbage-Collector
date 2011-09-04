@@ -4,6 +4,7 @@
 using std::size_t;
 using std::ptrdiff_t;
 
+template <typename _Tp>
 class dummy_allocator
 {
 public:
