@@ -21,6 +21,7 @@
 #include "utilities.hpp"
 
 #include <ostream>
+#include <utility>
 
 namespace gc
 {
@@ -36,9 +37,9 @@ namespace gc
 		typedef T element_type;
 
 		template<typename... Args>
-		smart_pointer(const Args&& ... ca )
+		smart_pointer(Args&& ... ca )
 		{
-			p = new T( ca... ); //! @todo allocator needed
+			p = new T( std::forward<Args>(ca)... ); //! @todo allocator needed
 		}
 
 		smart_pointer(smart_pointer&& p);
