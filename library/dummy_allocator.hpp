@@ -2,8 +2,8 @@
 #define DUMMY_ALLOCATOR_HPP
 
 #include <stddef.h>
-#include <new>
 #include <iostream>
+#include <limits>
 
 namespace gc{
 
@@ -59,7 +59,7 @@ template <typename T> typename dummy_allocator<T>::const_pointer dummy_allocator
 
 template <typename T> typename dummy_allocator<T>::size_type dummy_allocator<T>::max_size() const throw()
 {
-    return size_t(-1) / sizeof(T);
+    return  std::numeric_limits<size_t>::max() / sizeof(T);
 }
 
 template <typename T> typename dummy_allocator<T>::pointer dummy_allocator<T>::allocate(size_type n, const void *)
