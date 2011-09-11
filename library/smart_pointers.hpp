@@ -23,6 +23,12 @@ namespace gc
 			p = new T( ca... ); //! @todo allocator needed
 		}
 
+		template<typename... Args>
+		smart_pointer(const Args&& ... ca )
+		{
+			p = new T(ca...);
+		}
+
 		smart_pointer(smart_pointer&& p);
 		smart_pointer(T* pointer): p(pointer) THROW_CHECK() {}
 
