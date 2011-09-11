@@ -20,6 +20,7 @@
 
 #include "library/utilities.hpp"
 #include "library/smart_pointers.hpp"
+#include "library/dummy_allocator.hpp"
 
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE Test
