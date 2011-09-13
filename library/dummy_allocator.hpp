@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <iostream>
 #include <limits>
+#include <exception>
 
 namespace gc{
 
@@ -65,7 +66,7 @@ template <typename T> typename dummy_allocator<T>::size_type dummy_allocator<T>:
 template <typename T> typename dummy_allocator<T>::pointer dummy_allocator<T>::allocate(size_type n, const void *)
 {
     if (n > this->max_size())
-        std::__throw_bad_alloc();
+	throw std::bad_alloc();
 
     return(static_cast<pointer>(::operator new(n * sizeof(T))));
 }
